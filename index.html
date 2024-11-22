@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Casamento Adriana & Jaison</title>
+        <link rel="icon" href="icon.png" type="image/png">
+        <link rel="stylesheet" href="index.css">
+        <!-- Adicionando fonte romântica -->
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    </head>
+    
+<body>
+    <div class="container">
+        <div class="image-container">
+            <h1>Adriana & Jaison</h1>
+            <img src="aj.jpg" alt="Adriana e Jaison">
+        </div>
+        <div class="text-content">
+            <p>O amor é paciente, o amor é bondoso. E no dia <b>28 de Dezembro de 2024</b>, nosso amor será celebrado para sempre.</p>
+
+            <!-- Contagem regressiva -->
+            <div id="countdown" class="countdown"></div>
+
+            <!-- Player de música -->
+            <div class="audio-player">
+                <p class="audio-label">🎵:</p>
+                <audio controls>
+                    <source src="eds.mp3" type="audio/mpeg">
+                    Seu navegador não suporta o player de áudio.
+                </audio>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data do casamento
+        const weddingDate = new Date("2024-12-28T00:00:00");
+
+        function updateCountdown() {
+            const now = new Date();
+            const timeDiff = weddingDate - now;
+
+            // Cálculos de dias, horas, minutos e segundos
+            const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDiff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((timeDiff / (1000 * 60)) % 60);
+            const seconds = Math.floor((timeDiff / 1000) % 60);
+
+            // Atualizando o contador
+            document.getElementById("countdown").innerHTML = `
+                <div class="countdown-block">
+                    <span class="countdown-time">${days}</span>
+                    <span class="countdown-label">Dias</span>
+                </div>
+                <div class="countdown-block">
+                    <span class="countdown-time">${hours}</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <div class="countdown-block">
+                    <span class="countdown-time">${minutes}</span>
+                    <span class="countdown-label">Minutos</span>
+                </div>
+                <div class="countdown-block">
+                    <span class="countdown-time">${seconds}</span>
+                    <span class="countdown-label">Segundos</span>
+                </div>
+            `;
+        }
+
+        // Atualização da contagem regressiva a cada segundo
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
